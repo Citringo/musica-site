@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
 var index = require('./routes/index');
-var users = require('./routes/songs');
+var song = require('./routes/song');
+var search = require('./routes/search');
 
 var app = express();
 
@@ -22,16 +23,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: true, // true = .sass and false = .scss
+  src: path.join(__dirname, 'public/'),
+  dest: path.join(__dirname, 'public/'),
+  indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'semantic/dist')));
 
 app.use('/', index);
-app.use('/songs/', songs);
+app.use('/song/', song);
+app.use('/search/', search);
+app.use('/about', (req, res, next) => {
+  res.render("about");
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

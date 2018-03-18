@@ -1,0 +1,17 @@
+body {
+	font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+}
+
+p, a, li, div {
+	line-height: 190% !important;
+}
+
+p, a, li {
+	font-size: 12pt;
+}
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		line-height: 190% !important;
+	}
+}

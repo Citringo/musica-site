@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	.vertical.segment.ui.stackable.relaxed.grid.container
+		.row
+			.sixteen.wide.column
+				h1.ui.header= music ? "検索結果" : "(´·_·`)"
+					.sub.header= music ? `'${keyword}' に関する検索結果が ${music.length} 件見つかりました．` : `'残念ながら，${keyword}' に関する検索結果は見つかりませんでした．`
+	if (music)
+		.ui.stackable.relaxed.grid.container
+			.row
+				.sixteen.wide.column
+					.ui.items
+						each val in music
+							+song(val)

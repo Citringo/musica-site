@@ -1,29 +1,37 @@
-mixin songs(music, url)
-  .ui.link.cards
-    each val in music
-        .ui.card
-          .content
-            .header: a(href="/song/" + val.display_id)= val.title
-            .meta= val.display_id
-          .content
-            //- MP3 決め打ち
-            audio(src=url + val.display_id + ".mp3", controls, style="width: 100%")
-          .content
-            .description= val.description ? val.description : "説明はありません"
+mixin song(song)
+	.ui.item
+		.ui.content
+			a(href="/song/" + song.display_id).header= song.title
+			.meta: span= song.display_id
+			.description= song.description
+			.extra
+				.ui.horizontal.list
+					.item: i.comment.alternate.icon
+					.item: i.share.alternate.icon
+					.item: span ❤️ 1
+					.item: span 👍 2
+
+	.ui.divider
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/')
-    link(rel='stylesheet', type='text/css' href='/semantic.min.css')
-  body
-    .ui.inverted.menu
-      .header.item Xeltica Musica
-      a.item About
-      .right.menu
-        .item
-          .ui.icon.input
-            input(type="text" placeholder="検索")
-            i.search.link.icon
-    block content
-    link(rel='stylesheet', href='/stylesheets/style.css')
+	head
+		title= title
+		link(rel='stylesheet', type='text/css' href='/semantic.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		.ui.menu
+			.header.item: a(href="/") Xeltica Musica (β)
+			a(href="/about").item About
+			.item.ui.search.focus
+				.ui.left.icon.input
+					input.prompt(type="text" name="keyword" placeholder="検索")
+					i.search.link.icon
+		block content
+		footer.ui.black.inverted.vertical.segment
+			.ui.center.aligned.container
+				p.inverted (C)2018 Xeltica Musica All rights reserved.
+		script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+		script(src='/semantic.min.js')
+		script(src="/javascripts/search.js")
+
+		

@@ -1,14 +1,15 @@
 extends layout
 
 block content
-    .ui.link.cards
-      each val in music
-          .ui.card
-            .content
-              .header: a(href="/song/" + val.display_id)= val.title
-              .meta= val.display_id
-            .content
-              //- MP3 決め打ち
-              audio(src=music_url + val.display_id + ".mp3", controls, style="width: 100%")
-            .content
-              .description= val.description ? val.description : "説明はありません"
+	.vertical.segment.ui.stackable.relaxed.grid.container
+		.row
+			.sixteen.wide.column
+				h1.ui.header Xeltica Musica
+				p Xeltica Musica は，ゼルチカの音楽レーベルです．
+
+	.ui.stackable.relaxed.grid.container
+		.row
+			.sixteen.wide.column
+				.ui.items
+					each val in music
+						+song(val)

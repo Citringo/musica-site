@@ -9,13 +9,13 @@ const api_endpoint = "https://api.citringo.net/musica/v1/";
 router.get('/', (req, res, next) => {
   request.get(urljoin(api_endpoint, "list"), (err, r, body) => {
     if (err || r.statusCode == 404) {
-      res.statusCode(404);
+      res.status(404);
       res.render("error", {message: "データを取得できませんでした．しばらくしてから再度読み込んでください．", developer_message: "Couldn't connect to list API"});
       return;
     }
     else if (err)
     {
-      res.statusCode(404);
+      res.status(404);
       res.render("error", {message: "データを取得できませんでした．しばらくしてから再度読み込んでください．", developer_message: `${r.statusCode} ${r.statusMessage}`});
       return;
     }

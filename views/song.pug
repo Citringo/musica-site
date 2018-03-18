@@ -1,5 +1,39 @@
 extends layout
 
 block content
-	.container
-		+songs(music, music_url)
+	.relaxed.ui.grid.container
+		.row
+			.twelve.wide.column
+				main
+					.ui.vertical.segment
+						h1.ui.header= song.title
+							.sub.header= song.display_id
+						audio(src=url + song.display_id + ".mp3", controls, autoplay, style="width: 100%")
+					.ui.vertical.segment
+						.ui.grid.container
+							.row
+								.eight.wide.column
+									p= song.description
+									.ui.list
+										.item
+											i.user.icon
+											.content
+												.header 依頼者
+												.description= song.client
+										.item
+											i.book.icon
+											.content
+												.header 元ネタ
+												.description= song.source ? song.source : "オリジナル曲"
+								.eight.wide.column
+									div(style="padding-bottom: 500px; padding-top: 64px")
+										h3.ui.header コメント機能は未実装です
+											.sub.header アップデートをお待ちください
+
+			.four.wide.column
+				h4.ui.header 関連楽曲
+				.ui.grid
+					.sixteen.wide.column
+						.ui.items
+							each val in relatives
+								+song(val)
