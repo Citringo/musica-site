@@ -1,0 +1,29 @@
+mixin songs(music, url)
+  .ui.link.cards
+    each val in music
+        .ui.card
+          .content
+            .header: a(href="/song/" + val.display_id)= val.title
+            .meta= val.display_id
+          .content
+            //- MP3 決め打ち
+            audio(src=url + val.display_id + ".mp3", controls, style="width: 100%")
+          .content
+            .description= val.description ? val.description : "説明はありません"
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/')
+    link(rel='stylesheet', type='text/css' href='/semantic.min.css')
+  body
+    .ui.inverted.menu
+      .header.item Xeltica Musica
+      a.item About
+      .right.menu
+        .item
+          .ui.icon.input
+            input(type="text" placeholder="検索")
+            i.search.link.icon
+    block content
+    link(rel='stylesheet', href='/stylesheets/style.css')
