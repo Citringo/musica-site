@@ -31,9 +31,12 @@ block content
 											.sub.header アップデートをお待ちください
 
 			.four.wide.column
-				h4.ui.header 関連楽曲
+				h2.ui.header 関連楽曲
 				.ui.grid
 					.sixteen.wide.column
-						.ui.items
-							each val in relatives
-								+song(val)
+						if (relatives && relatives.length > 0)
+							.ui.items
+								each val in relatives
+									+song(val)
+						else
+							p 関連楽曲はありません
