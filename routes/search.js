@@ -12,7 +12,9 @@ router.get('/', (req, res, next) => {
 		res.redirect("/");
 		return;
 	}
-	request.get(urljoin(api_endpoint, "search"), { form: { keyword: req.query.keyword }}, (err, r, body) => {
+	request.get({
+	url: urljoin(api_endpoint, "search"),
+	qs: { keyword: req.query.keyword }}, (err, r, body) => {
 		var o = JSON.parse(body);
 		o.keyword = req.query.keyword;
 		o.title = `${o.keyword} の検索結果 - Xeltica Musica`;
