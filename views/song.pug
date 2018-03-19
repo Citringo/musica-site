@@ -31,12 +31,33 @@ block content
 											.sub.header アップデートをお待ちください
 
 			.four.wide.column
-				h2.ui.header 関連楽曲
+				h2.ui.header 他の曲
+					.ui.form
+						.grouped.fields
+							.field
+								.ui.radio.checkbox.checked#diffchk
+									input(type="radio" name="r")
+									label 同曲の別バージョン
+							.field
+								.ui.radio.checkbox#allchk
+									input(type="radio" name="r")
+									label 近い番号の曲
+
 				.ui.grid
-					.sixteen.wide.column
+					.sixteen.wide.column#diff
 						if (relatives && relatives.length > 0)
 							.ui.items
 								each val in relatives
 									+song(val)
 						else
 							p 関連楽曲はありません
+					.sixteen.wide.column#all(style="display:none")
+						if (all && all.length > 0)
+							.ui.items
+								each val in all
+									+song(val)
+						else
+							p 関連楽曲はありません
+
+block script
+	script(src="/javascripts/song.js")
