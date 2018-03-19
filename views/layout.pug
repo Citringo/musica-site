@@ -15,13 +15,17 @@ mixin song(song)
 doctype html
 html
 	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1")
 		title= title
+		meta(name="description", content=description)
 		link(rel='stylesheet', type='text/css' href='/semantic.min.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 	body
 		.ui.menu
 			.header.item: a(href="/") Xeltica Musica (β)
-			a(href="/about").item About
+			a(href="/about").item 挨拶
 			.item.ui.search.focus
 				.ui.left.icon.input
 					input.prompt(type="text" name="keyword" placeholder="検索")
