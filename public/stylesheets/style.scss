@@ -18,10 +18,19 @@ p, a, li {
 	#searchbar_mobile {
 		display: none !important;
 	}
+
+	.xm, .comment {
+		padding-bottom: 480px;
+	}
 }
 
 #searchbar_pc {
 	display: none;
+}
+
+.xm.comment {
+	padding-top: 64px;
+	padding-bottom: 64px;
 }
 
 #searchbar_mobile {
