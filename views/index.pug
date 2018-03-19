@@ -1,15 +1,63 @@
 extends layout
 
+mixin card(title, subtitle)
+	.ui.vertical.segment
+		h3.ui.header= title
+			if subitle
+				.sub.title= subtitle
+		block
+
+mixin stat(title, val)
+	li= title
+		| : 
+		!= val
+
 block content
 	.vertical.segment.ui.stackable.relaxed.grid.container
 		.row
 			.sixteen.wide.column
 				h1.ui.header Xeltica Musica
 				p Xeltica Musica は，ゼルチカの音楽レーベルです．
-
-	.ui.stackable.grid.container
-		.row
-			//-.ui.items
-			each val in music
-				.eight.wide.column
-					+song(val)
+	
+	.ui.mobile.reversed.stackable.equal.width.relaxed.grid.container
+		.column
+			.ui.relaxed.stackable.grid.container
+				.row
+					.sixteen.wide.column.center
+						.ui.items
+							each val in music
+								+song(val)
+		.column
+			+card("News")
+				table.ui.celled.striped.table
+					tbody
+						tr
+							td 2018/3/19
+							td レイアウトを微調整しました．
+						tr
+							td 2018/3/19
+							td 詳細検索画面で，常に見つかりませんと表示され，検索できないバグを修正しました．
+						tr
+							td 2018/3/19
+							td Xeltica Musica を公開しました．
+			+card("今後の予定")
+				ul
+					li リアクション
+					li コメント
+					li メディア共有
+					li Twitter Card 化
+					li 独自プレイヤー
+					li 再生数表示
+					li コンテンツ数表示
+					li 人気コンテンツ表示
+				p こんな機能があったらいいんじゃね？って思った方は，
+					a(href="https://github.com/citringo/musica-site/issues") Issues
+					| にて意見をください！
+			+card("コンテンツ数")
+				ul
+					+stat("合計曲数", 0)
+					+stat("完成数", 0)
+					+stat("作曲数", 0)
+					+stat("編曲数", 0)
+					+stat("合計閲覧数", 0)
+				p 準備中です
