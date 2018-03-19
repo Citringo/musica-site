@@ -30,3 +30,5 @@ node_modules
 npm-debug.log
 
 semantic/
+public/stylesheets/style.css
+public/stylesheets/style.css.map

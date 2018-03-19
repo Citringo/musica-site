@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	.relaxed.ui.grid.container
+	.relaxed.ui.stackable.grid.container
 		.row
 			.twelve.wide.column
 				main
@@ -10,7 +10,7 @@ block content
 							.sub.header= song.display_id
 						audio(src=url + song.display_id + ".mp3", controls, autoplay, style="width: 100%")
 					.ui.vertical.segment
-						.ui.grid.container
+						.ui.stackable.grid.container
 							.row
 								.eight.wide.column
 									p= song.description

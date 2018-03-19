@@ -7,9 +7,9 @@ block content
 				h1.ui.header Xeltica Musica
 				p Xeltica Musica は，ゼルチカの音楽レーベルです．
 
-	.ui.stackable.relaxed.grid.container
+	.ui.stackable.grid.container
 		.row
-			.sixteen.wide.column
-				.ui.items
-					each val in music
-						+song(val)
+			//-.ui.items
+			each val in music
+				.eight.wide.column
+					+song(val)

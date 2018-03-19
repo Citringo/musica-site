@@ -10,6 +10,25 @@ p, a, li {
 	font-size: 12pt;
 }
 
+@media only screen and (min-width: 601px) {
+	#searchbar_pc {
+		display: block !important;
+	}
+
+	#searchbar_mobile {
+		display: none !important;
+	}
+}
+
+#searchbar_pc {
+	display: none;
+}
+
+#searchbar_mobile {
+	display: block;
+	text-align: center;
+}
+
 @for $i from 1 through 6 {
 	h#{$i} {
 		line-height: 190% !important;

@@ -26,10 +26,15 @@ html
 		.ui.menu
 			.header.item: a(href="/") Xeltica Musica (β)
 			a(href="/about").item 挨拶
-			.item.ui.search.focus
+			.item.ui.search.focus#searchbar_pc
 				.ui.left.icon.input
 					input.prompt(type="text" name="keyword" placeholder="検索")
 					i.search.link.icon
+		.ui.search.focus#searchbar_mobile
+			.ui.left.icon.input
+				input.prompt(type="text" name="keyword" placeholder="検索")
+				i.search.link.icon
+		
 		block content
 		footer.ui.black.inverted.vertical.segment
 			.ui.center.aligned.container
