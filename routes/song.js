@@ -21,7 +21,7 @@ router.get('/:id', (req, res, next) => {
       if (ro.ok) {
         relatives = ro.music;
       }
-      res.render("song", {song: o.music, url: o.music_url, relatives: relatives}); 
+      res.render("song", {song: o.music, url: o.music_url, relatives: relatives, title: `${o.music.title} - Xeltica Musica`, description: o.music.description});
     });
   });
 });

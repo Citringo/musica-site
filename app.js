@@ -35,7 +35,7 @@ app.use('/', index);
 app.use('/song/', song);
 app.use('/search/', search);
 app.use('/about', (req, res, next) => {
-  res.render("about");
+  res.render("about", { title: "挨拶 - Xeltica Musica" });
 });
 
 // catch 404 and forward to error handler

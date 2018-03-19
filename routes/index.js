@@ -19,7 +19,10 @@ router.get('/', (req, res, next) => {
       res.render("error", {message: "データを取得できませんでした．しばらくしてから再度読み込んでください．", developer_message: `${r.statusCode} ${r.statusMessage}`});
       return;
     }
-    res.render("index", JSON.parse(body));
+	var o = JSON.parse(body);
+ 	o.title = "Xeltica Musica";
+	o.description = "ゼルチカが作成した全曲を無料配信．";
+    res.render("index", o);
   });
 });
 
