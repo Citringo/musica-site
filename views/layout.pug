@@ -1,3 +1,11 @@
+mixin twitter(url, text, related)
+	a.twitter-share-button(href="https://twitter.com/share", data-url=url, date-text=text, data-related=related) ツイート
+
+- const getPublishText = (song) => `${song.display_id} ${song.title} - Xeltica Musica`;
+
+mixin twiShare(song)
+	+twitter("https://musica.citringo.net/song/" + song.display_id, getPublishText(song))
+
 mixin song(song)
 	.ui.item
 		.ui.content
@@ -6,11 +14,7 @@ mixin song(song)
 			.description= song.description
 			.extra
 				.ui.horizontal.list
-					.item: i.comment.alternate.icon
-					.item: i.share.alternate.icon
-					.item: span ❤️ 1
-					.item: span 👍 2
-
+				
 	.ui.divider
 doctype html
 html
@@ -42,5 +46,6 @@ html
 		script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 		script(src='/semantic.min.js')
 		script(src="/javascripts/search.js")
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		block script
 

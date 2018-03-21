@@ -9,6 +9,8 @@ block content
 						h1.ui.header= song.title
 							.sub.header= song.display_id
 						audio(src=url + song.display_id + ".mp3", controls, autoplay, style="width: 100%")
+						.ui.horizontal.list
+							+twiShare(song)
 					.ui.vertical.segment
 						.ui.stackable.grid.container
 							.row
